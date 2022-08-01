@@ -34,7 +34,7 @@ public class Question {
         String[] strs = string.split("\\s+");
         for (String str : strs) {
             HashMap<Integer, Integer> countMap = map.getOrDefault(str, new HashMap<>());
-            countMap.put(id, 1);
+            countMap.put(id, countMap.getOrDefault(id, 0) + 1); //for duplicate word in each line, "a a b"
             map.put(str, countMap);
         }
     }
